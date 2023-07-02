@@ -1,14 +1,15 @@
 
 mat-card {
-  margin-top: 1%;
+  margin-top: 20px;
   background-color: aliceblue;
+  text-align: center;
 }
 
 mat-toolbar {
-  background-color: black;
+  background-color: gray;
 }
 table {
 
-  background-color: black;
+  background-color: gray;
   margin-top:10px;
 }
