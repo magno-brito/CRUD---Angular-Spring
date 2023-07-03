@@ -1,27 +1,32 @@
 <mat-card>
-
-  <mat-toolbar >
+  <mat-toolbar>
     <span>Cursos disponíveis</span>
   </mat-toolbar>
 
-  <table mat-table [dataSource]="courses" class="mat-elevation-z8" >
+  <div *ngIf="courses | async; else loading ">
 
-  <!--Name column-->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let course"> {{ course.name }} </td>
-    </ng-container>
+    <table mat-table [dataSource]="courses" class="mat-elevation-z8">
+      <!--Name column-->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let course">{{ course.name }}</td>
+      </ng-container>
 
-  <!--Name column-->
-    <ng-container matColumnDef="category">
-      <th mat-header-cell *matHeaderCellDef> Category </th>
-      <td mat-cell *matCellDef="let course"> {{ course.category }} </td>
-    </ng-container>
+      <!--Name column-->
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>Category</th>
+        <td mat-cell *matCellDef="let course">{{ course.category }}</td>
+      </ng-container>
 
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
 
+  </div>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+  <ng-template #loading>
+    <p> Carregando</p>
+  </ng-template>
 
 </mat-card>
+
