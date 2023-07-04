@@ -7,6 +7,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SharedModule } from '../shared/shared.module';
+import { MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SharedModule } from '../shared/shared.module';
     MatTableModule,
     MatCardModule,
     MatToolbarModule,
-    SharedModule
+    SharedModule,
+    MatIconModule
   ]
 })
 export class CoursesModule { }

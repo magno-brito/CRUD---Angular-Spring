@@ -9,7 +9,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule} from '@angular/material/dialog';
 import { MatButtonModule} from '@angular/material/button';
-
+import { MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -25,7 +25,8 @@ import { MatButtonModule} from '@angular/material/button';
     HttpClientModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
