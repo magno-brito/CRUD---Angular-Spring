@@ -10,7 +10,7 @@ export class CoursesService {
 
 
   //endpoint (caminho que vai me levar até o arquivo json com os dados criados)
-  private readonly API = '/assets/courses.json';
+  private readonly API = 'api/courses';
 
   //Injeção de dependência
   constructor(private httpClient: HttpClient) { }

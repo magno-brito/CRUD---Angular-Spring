@@ -7,6 +7,7 @@ import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 import { MatIconModule} from '@angular/material/icon';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -19,13 +20,15 @@ export class CoursesComponent implements OnInit{
 
 
   public courses: Observable<Course[]>;
-  displayedColumns = ['name','category']
+  displayedColumns = ['name','category','actions']
 
   // coursesService!: CoursesService;
    //Tive problema ao iniciar CoursesService. Colocando ! resolve o problema
 
    constructor(private coursesService: CoursesService ,
-    public dialog: MatDialog ) {
+    public dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute ) {
     this.courses = this.coursesService.list().pipe(
       catchError(error => {
         this.onError('Erro ao carregar cursos!');
@@ -38,6 +41,10 @@ export class CoursesComponent implements OnInit{
     this.dialog.open(ErrorDialogComponent, {
       data: errorMsg
     });
+   }
+
+   ondAdd() {
+    this.router.navigate(['new'],{relativeTo:this.route})
    }
 
   ngOnInit() : void {
